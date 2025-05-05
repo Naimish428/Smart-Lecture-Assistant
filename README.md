@@ -1,64 +1,45 @@
-📚 Smart Lecture Assistant
-Smart Lecture Assistant is a Flask-based web application that allows users to upload educational videos or PDFs and automatically generate:
+# Smart Lecture Assistant 🎓🤖
 
-📄 A structured summary of the content
+**An AI-powered multimodal framework for automatic lecture summarization, mathematical content interpretation, and assessment generation.**
 
-❓ Multiple-choice questions (MCQs)
+---
 
-➗ Extracted math equations
+## 🔍 Overview
 
-📥 Downloadable TXT and PDF formats
+Smart Lecture Assistant is a Flask-based web application that allows users to upload **video** or **PDF lecture files** and automatically generates:
+- ✅ A comprehensive **summary**
+- 🧮 Extracted **mathematical expressions**
+- ❓ A set of unique, AI-generated **multiple-choice questions (MCQs)**
 
-Built with advanced AI tools like Whisper, Google Gemini, and Google Translate, this tool is ideal for students, educators, and content creators seeking quick educational content generation.
+This tool is designed to assist students, educators, and self-learners in quickly digesting complex educational content.
 
-🔧 Features
-🎥 Video Support: Extracts audio from educational videos and transcribes them using Whisper.
+---
 
-📄 PDF Support: Parses text directly from uploaded PDFs.
+## 🚀 Key Features
 
-🌐 Language Support: Detects and translates non-English text to English.
+- 🎥 Accepts both **PDFs** and **video lectures**
+- 🗣️ Uses **Whisper ASR** to transcribe speech from video/audio
+- 🌐 Automatically **translates non-English content** to English
+- 📚 Summarizes content using **Google Gemini Pro**
+- 🧠 Extracts and preserves **mathematical equations**
+- 📝 Generates **up to 30 MCQs** with customizable difficulty
+- 📄 Supports **TXT and PDF downloads** of summary and questions
 
-🧠 AI-Powered Summarization: Uses Google Gemini to summarize lectures in a clean and structured format.
+---
 
-📝 MCQ Generation: Generates unique, difficulty-based MCQs from the summary.
+## 🛠️ Tech Stack
 
-🧮 Equation Extraction: Finds and lists math equations.
+| Technology        | Purpose                                      |
+|-------------------|----------------------------------------------|
+| Flask             | Backend web framework                        |
+| Google Gemini Pro | Summarization and MCQ generation             |
+| OpenAI Whisper    | Audio transcription from video lectures      |
+| PyMuPDF (`fitz`)  | PDF text extraction                          |
+| Google Translate  | Multilingual support                         |
+| FPDF              | PDF export of summary and MCQs               |
+| HTML/CSS/JS       | Frontend rendering and interaction           |
 
-📤 Downloadable Outputs: Summary and MCQs can be downloaded in TXT and PDF formats.
+---
 
-🧪 Dependencies
-Flask
+## 📁 Directory Structure
 
-Flask-CORS
-
-Whisper (OpenAI)
-
-moviepy
-
-PyMuPDF (fitz)
-
-FPDF
-
-googletrans
-
-google-generativeai
-
-unidecode
-
-📌 Notes
-Only supports .pdf, .mp4, and .mkv files.
-
-Whisper model is set to "base" for faster performance.
-
-Outputs are saved in the uploads/ directory.
-
-🤝 Acknowledgements
-OpenAI Whisper
-
-Google Generative AI
-
-moviepy
-
-PyMuPDF
-
-FPDF
