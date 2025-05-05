@@ -62,7 +62,7 @@ unidecode
 
 werkzeug
 
-##💡 Future Enhancements
+## 💡 Future Enhancements
 📌 Flashcards and concept map generation
 
 📊 Real-time quiz scoring
