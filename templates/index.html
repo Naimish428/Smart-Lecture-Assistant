@@ -6,7 +6,293 @@
   <title>🎓 Smart Lecture Assistant</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  
+  <style>
+    :root {
+      --light-bg: linear-gradient(-45deg, #fbd3e9, #bbd2c5, #ffecd2, #c2e9fb);
+      --dark-bg: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1f1c2c);
+      --container-bg-light: rgba(255, 255, 255, 0.15);
+      --container-bg-dark: rgba(0, 0, 0, 0.3);
+      --text-light: #333;
+      --text-dark: #f0f0f0;
+      --accent-gradient: linear-gradient(135deg, #f7971e, #ffd200, #f857a6, #ff5858);
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
+
+    body {
+      background: var(--dark-bg);
+      background-size: 600% 600%;
+      animation: bgShift 20s ease infinite;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--text-dark);
+    }
+
+    body.light-mode {
+      background: var(--light-bg);
+      color: var(--text-light);
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .dark-toggle {
+      position: absolute;
+      top: 18px;
+      right: 28px;
+      z-index: 2;
+    }
+
+    .dark-toggle label {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: white;
+      background: rgba(0,0,0,0.3);
+      padding: 6px 12px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .dark-toggle input {
+      margin-right: 8px;
+      transform: scale(1.1);
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      width: 64px;
+      height: 64px;
+      line-height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: rainbowShift 6s ease infinite;
+      color: white;
+    }
+
+    @keyframes rainbowShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: hueRotate 10s linear infinite;
+      margin: 0;
+    }
+
+    @keyframes hueRotate {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    .typing-text {
+      font-size: 18px;
+      font-style: italic;
+      min-height: 24px;
+    }
+
+    .cursor {
+      display: inline-block;
+      background-color: currentColor;
+      width: 1px;
+      height: 1em;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      background: var(--container-bg-dark);
+      backdrop-filter: blur(20px);
+      border-radius: 24px;
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      width: 90%;
+      max-width: 720px;
+      text-align: center;
+      box-shadow: 0 10px 60px rgba(0,0,0,0.3);
+      animation: fadeIn 1s ease forwards;
+      margin-bottom: 40px;
+    }
+
+    body.light-mode .container {
+      background: var(--container-bg-light);
+      color: var(--text-light);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      width: 100%;
+      max-width: 600px;
+      text-align: left;
+      font-size: 15px;
+      margin-top: 18px;
+    }
+
+    input[type="file"],
+    input[type="number"],
+    select {
+      width: 100%;
+      max-width: 600px;
+      padding: 14px 16px;
+      font-size: 15px;
+      border: 2px solid #555;
+      border-radius: 14px;
+      background: rgba(20, 20, 20, 0.8);
+      color: white;
+      margin-top: 6px;
+    }
+
+    body.light-mode input,
+    body.light-mode select {
+      background: rgba(255, 255, 255, 0.9);
+      color: #222;
+    }
+
+    input[type="file"]::file-selector-button {
+      background-color: #6a6bd6;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+
+    input:focus, select:focus {
+      border-color: #5f6caf;
+      box-shadow: 0 0 0 3px rgba(95, 108, 175, 0.25);
+      outline: none;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 14px 36px;
+      background: var(--accent-gradient);
+      background-size: 200%;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background 0.4s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-position: right center;
+      transform: scale(1.07);
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      z-index: 1;
+    }
+
+    .feature-card {
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      padding: 20px 24px;
+      flex: 1 1 240px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    body.light-mode .feature-card {
+      background: rgba(255,255,255,0.2);
+      color: #111;
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      font-size: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 20px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+      .header-flex {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body class="dark-mode">
   <div id="particles-js"></div>
@@ -143,3 +429,4 @@
   </script>
 </body>
 </html>
+
