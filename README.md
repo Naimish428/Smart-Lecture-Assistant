@@ -41,5 +41,35 @@ This tool is designed to assist students, educators, and self-learners in quickl
 
 ---
 
-## 📁 Directory Structure
+## 📦 Dependencies
+Flask
+
+flask_cors
+
+google-generativeai
+
+openai-whisper
+
+moviepy
+
+fpdf
+
+PyMuPDF
+
+googletrans==4.0.0-rc1
+
+unidecode
+
+werkzeug
+
+##💡 Future Enhancements
+📌 Flashcards and concept map generation
+
+📊 Real-time quiz scoring
+
+🌍 Multilingual support for summaries and questions
+
+☁️ Cloud storage for files and results
+
+
 
