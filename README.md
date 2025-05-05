@@ -1,4 +1,4 @@
-# Smart Lecture Assistant 🎓🤖
+# 🎓Smart Lecture Assistant 🤖
 
 **An AI-powered multimodal framework for automatic lecture summarization, mathematical content interpretation, and assessment generation.**
 
