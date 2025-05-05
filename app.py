@@ -16,7 +16,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Google Gemini API
-genai.configure(api_key="AIzaSyA_2UDjUr5saU2z8jNEkTvhcVbjojlYazM")
+genai.configure(api_key="GOOGLE-GEMINI-API")
 
 # Whisper ASR model
 whisper_model = whisper.load_model("base")
